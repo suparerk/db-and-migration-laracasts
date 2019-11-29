@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Projects</title>
-</head>
-<body>
-  <h1>Projects</h1>
-  @foreach ($projects as $item)
-    <li>{{ $item->title }}</li>
-  @endforeach
-</body>
-</html>
+@extends('layout')
+
+@section('content')
+<h1 class="title">Projects</h1>
+<div class="field">
+  <div class="form">
+    @foreach ($projects as $item)
+      <li>{{ $item->title }}</li>
+    @endforeach
+  </div>
+</div>    
+@endsection
