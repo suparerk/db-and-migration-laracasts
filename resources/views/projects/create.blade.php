@@ -9,14 +9,14 @@
     <div class="field">
       <label class="label" for="title">Title</label>
       <div class="control">
-        <input type="text" class="input" name="title" placeholder="Title"">
+        <input type="text" class="input {{ $errors->has('title') ? 'is-danger' : '' }}" name="title" placeholder="Title" value="{{ old('title') }}" required>
       </div>
     </div>
 
     <div class="field">
       <label class="label" for="description">Description</label>
       <div class="control">
-        <textarea name="description" id="" cols="30" rows="10" class="textarea"></textarea>
+        <textarea name="description" cols="30" rows="10" class="textarea {{ $errors->has('description') ? 'is-danger' : '' }}" required>{{ old('description') }}</textarea>
       </div>
     </div>
 
@@ -25,5 +25,16 @@
         <button type="submit" class="button is-link">Create Project</button>
       </div>
     </div>
+
+    @if ($errors->any())
+      <div class="notification is-danger">
+        <ul>
+          @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+          @endforeach
+        </ul>
+      </div>        
+    @endif
+
   </form>
 @endsection
