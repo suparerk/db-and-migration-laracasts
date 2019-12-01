@@ -1,5 +1,7 @@
 <?php
 
+use App\Services\Twitter;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,7 +13,8 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function (Twitter $twitter) {
+    dd($twitter);
     return view('welcome');
 });
 
