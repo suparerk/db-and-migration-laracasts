@@ -22,6 +22,12 @@ class ProjectsController extends Controller
     }
     public function show(Project $project)
     {
+        // abort_if()
+        // abort_unless()
+        // $this->authorize('update', $project);
+        // abort_unless(\Gate::allows('update, $project'), 403);
+        // auth()->user->can('update', $project);
+
         return view('projects.show', compact('project'));
     }
     public function create()
